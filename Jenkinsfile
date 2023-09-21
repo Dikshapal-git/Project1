@@ -14,5 +14,10 @@ pipeline {
 		    steps {
 			
 		sh 'cp target/Project1.war /home/diksha-1/Documents/ExtractFile/apache-tomcat-9.0.80/webapps'
+		
 	}}
+	        stage ('slack') {
+	         steps {
+	                     slackSend baseUrl: 'https://hooks.slack.com/services/', channel: '#nothing', color: 'grren', message: 'welcome', teamDomain: 'Devops'
+	                     }}
 }}
